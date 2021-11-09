@@ -6,10 +6,6 @@ require('dotenv').config();
 
 app.use(express.json());
 
-app.get('/hello', (req, res) => {
-  res.send('Test');
-});
-
 app.use('/api/v1/tasks', tasks);
 
 const port = 3000;
