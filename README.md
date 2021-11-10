@@ -20,3 +20,8 @@ Taken from: https://www.udemy.com/course/nodejs-tutorial-and-projects-course/?re
   <img width=100% src="img/app.png">
   <img width=100% src="img/edit.png">
 </p>
+
+## Running
+
+Update the `MONGO_URI` in the `.env` file.
+Use MongoDB atlas: https://www.mongodb.com/atlas/database
