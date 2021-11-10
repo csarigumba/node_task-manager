@@ -11,11 +11,11 @@ const createTask = asyncWrapper(async (req, res) => {
   res.status(201).json({ createdTask });
 });
 
-const getTask = asyncWrapper(async (req, res) => {
+const getTask = asyncWrapper(async (req, res, next) => {
   const { id: taskId } = req.params;
   const task = await Task.findOne({ _id: taskId });
   if (!task) {
-    return res.status(404).json({ msg: `No task with id ${taskId}` });
+    return next(createCustomError(`No task with id : ${taskID}`, 404));
   }
   res.status(200).json({ task });
 });
@@ -33,7 +33,7 @@ const deleteTask = asyncWrapper(async (req, res) => {
   const { id: taskId } = req.params;
   const task = await Task.findOneAndDelete({ _id: taskId });
   if (!task) {
-    return res.status(404).json({ msg: `No task with id ${taskId}` });
+    return next(createCustomError(`No task with id : ${taskID}`, 404));
   }
   res.status(200).json({ task });
 });
